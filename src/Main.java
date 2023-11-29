@@ -223,19 +223,15 @@ public class Main {
                 	System.out.println("Contraseña:");
                 	String contraseña = sc.next();
                 	
-                	boolean nombrePresente = false;
-                	boolean contraseñaPresente = false;
+                	boolean presente = false;
                 	
                 	for(Usuario user : listaUsuarios) {
-                		if(user.getNombre().equals(nombre)) {
-                			nombrePresente=true;
-                		}
-                		if(user.getContraseña().equals(contraseña)) {
-                			contraseñaPresente=true;
+                		if((user.getNombre().equals(nombre)) && (user.getContraseña().equals(contraseña)) ) {
+                			presente=true;
                 			break;
                 		}
                 	}
-                	if(nombrePresente && contraseñaPresente) {
+                	if(presente) {
                 		System.out.println("¡Inicio de sesión exitoso!");
                 		System.out.println("Bienvenido " + nombre + ".");
                 	} else {
@@ -243,7 +239,7 @@ public class Main {
                 	}
 //              REGISTRO
             	} else if(respuesta.equals("n") || respuesta.equals("N")) {
-	            	listaUsuarios.add(usuario.registro());
+            		listaUsuarios.add(usuario.registro());
 	            	System.out.println("Registro realizado con exito.");
                 } else {
                 	System.out.println("Respuesta inválida.");
