@@ -216,8 +216,8 @@ public class Main {
             case 18: // Login y Registro
             	System.out.println("¿Tiene cuenta en este banco? Y/N");
             	String respuesta = sc.next();
-            	switch(respuesta) {
-            	case "y":
+//            	LOGIN
+            	if(respuesta.equals("y") || respuesta.equals("Y")){
             		System.out.println("Usuario:");
                 	String nombre = sc.next();
                 	System.out.println("Contraseña:");
@@ -225,6 +225,7 @@ public class Main {
                 	
                 	boolean nombrePresente = false;
                 	boolean contraseñaPresente = false;
+                	
                 	for(Usuario user : listaUsuarios) {
                 		if(user.getNombre().equals(nombre)) {
                 			nombrePresente=true;
@@ -237,36 +238,22 @@ public class Main {
                 	if(nombrePresente && contraseñaPresente) {
                 		System.out.println("¡Inicio de sesión exitoso!");
                 		System.out.println("Bienvenido " + nombre + ".");
-                	}
-                	else {
+                	} else {
                 		System.out.println("Nombre de usuario o contraseña incorrectos.");
                 	}
-            		break;
-            	case "n":
-            		listaUsuarios.add(usuario.registro());
-            		System.out.println("Registro realizado con exito.");
-            		break;
-            	default:
-            		System.out.println("Respuesta inválida.");
-            		break;
+//              REGISTRO
+            	} else if(respuesta.equals("n") || respuesta.equals("N")) {
+	            	listaUsuarios.add(usuario.registro());
+	            	System.out.println("Registro realizado con exito.");
+                } else {
+                	System.out.println("Respuesta inválida.");
             	}
-            	
-//            	if((respuesta == "Y") || (respuesta == "y")) {
-//            		
-//            	}
-//            	else if((respuesta == "N") || (respuesta == "n")) {
-//            		listaUsuarios.add(usuario.registro());
-//            	}
-//            	else {
-//            		System.out.println("Respuesta inválida.");
-//            	}
             	
             	break;
             case 0:
             	break;
             default:
-            	System.out.println("Por favor, introduce un número válido.");
-            	
+            	System.out.println("Por favor, introduce un número válido.");	
             }
        
 		} sc.close();
