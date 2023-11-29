@@ -19,7 +19,7 @@ public class Envio {
 	
 //	métodos
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %d.", this.id, this.remitente, this.destinatario, this.fecha);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %s.", this.id, this.remitente, this.destinatario, this.fecha);
 	}
 	
 }

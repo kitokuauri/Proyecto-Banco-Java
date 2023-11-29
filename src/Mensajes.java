@@ -35,7 +35,7 @@ public class Mensajes extends Envio {
 	}
 	
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %d, mensaje: %s.", this.id, this.remitente, this.destinatario, this.fecha, this.mensaje);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %s, mensaje: %s.", this.id, this.remitente, this.destinatario, this.fecha, this.mensaje);
 	}
 
 

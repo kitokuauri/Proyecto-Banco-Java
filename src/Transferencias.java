@@ -35,7 +35,7 @@ public class Transferencias extends Envio {
 	}
 	
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %d, cantidad: %d.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %s, cantidad: %d.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
 	}
 
 	
