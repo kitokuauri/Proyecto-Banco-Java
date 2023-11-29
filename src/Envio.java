@@ -2,7 +2,7 @@
 public class Envio {
 	
 //	SuperConstructor
-	public Envio(int id, String remitente, String destinatario, int fecha) {
+	public Envio(int id, String remitente, String destinatario, String fecha) {
 		this.id=id;
 		this.remitente=remitente;
 		this.destinatario=destinatario;
@@ -15,7 +15,7 @@ public class Envio {
 	protected int id;
 	protected String remitente;
 	protected String destinatario;
-	protected int fecha;
+	protected String fecha;
 	
 //	métodos
 	public String mostrarInfo() {

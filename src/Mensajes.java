@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Mensajes extends Envio {
 	
 //	constructor
-	public Mensajes(String remitente, String destinatario, int fecha, String mensaje) {
+	public Mensajes(String remitente, String destinatario, String fecha, String mensaje) {
 		super(idM++, remitente, destinatario, fecha);
 		this.mensaje=mensaje;
 	}
@@ -25,8 +25,8 @@ public class Mensajes extends Envio {
 		System.out.println("Destinatario:");
 		String destinatario= sc.next();
 		
-		System.out.println("Fecha (en numeros seguidos):");
-		int fecha= sc.nextInt();
+		System.out.println("Fecha:");
+		String fecha= sc.next();
 		
 		System.out.println("Mensaje:");
 		String mensaje= sc.next();

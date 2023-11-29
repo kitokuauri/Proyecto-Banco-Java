@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Transferencias extends Envio {
 	
 //	constructor
-	public Transferencias(String remitente, String destinatario, int fecha, int cantidad) {
+	public Transferencias(String remitente, String destinatario, String fecha, int cantidad) {
 		super(idT++, remitente, destinatario, fecha);
 		this.cantidad=cantidad;
 	}
@@ -25,8 +25,8 @@ public class Transferencias extends Envio {
 		System.out.println("Destinatario:");
 		String destinatario= sc.next();
 		
-		System.out.println("Fecha (en numeros seguidos):");
-		int fecha= sc.nextInt();
+		System.out.println("Fecha:");
+		String fecha= sc.next();
 		
 		System.out.println("Cantidad:");
 		int cantidad= sc.nextInt();
