@@ -27,7 +27,7 @@ public class Usuario extends Persona{
 		System.out.println("Contraseña:");
 //		String contraseña= sc.next();
 		
-		String contaseña = leerPassword("Contraseña");
+		String contraseña = leerPassword("Contraseña");
 		
 		return new Usuario(usuario, email, contraseña);	
 	}
@@ -46,5 +46,16 @@ public class Usuario extends Persona{
 		}
 		return contraseña.toString();		
 	}
+
+//	GETTERS & SETTERS
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
+	
 
 }

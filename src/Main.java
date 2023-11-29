@@ -218,10 +218,33 @@ public class Main {
             	String respuesta = sc.next();
             	switch(respuesta) {
             	case "y":
-            		
+            		System.out.println("Usuario:");
+                	String nombre = sc.next();
+                	System.out.println("Contraseña:");
+                	String contraseña = sc.next();
+                	
+                	boolean nombrePresente = false;
+                	boolean contraseñaPresente = false;
+                	for(Usuario user : listaUsuarios) {
+                		if(user.getNombre().equals(nombre)) {
+                			nombrePresente=true;
+                		}
+                		if(user.getContraseña().equals(contraseña)) {
+                			contraseñaPresente=true;
+                			break;
+                		}
+                	}
+                	if(nombrePresente && contraseñaPresente) {
+                		System.out.println("¡Inicio de sesión exitoso!");
+                		System.out.println("Bienvenido " + nombre + ".");
+                	}
+                	else {
+                		System.out.println("Nombre de usuario o contraseña incorrectos.");
+                	}
             		break;
             	case "n":
             		listaUsuarios.add(usuario.registro());
+            		System.out.println("Registro realizado con exito.");
             		break;
             	default:
             		System.out.println("Respuesta inválida.");
