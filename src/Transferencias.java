@@ -1,6 +1,11 @@
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Transferencias extends Envio {
+	
+	List<Transferencias> listaTransferencias = new ArrayList<Transferencias>();
 	
 //	constructor
 	public Transferencias(String remitente, String destinatario, String fecha, int cantidad) {
@@ -18,7 +23,7 @@ public class Transferencias extends Envio {
 	Scanner sc = new Scanner(System.in);
 
 
-	public Transferencias enviarTransferencia() {
+	public void enviarTransferencia() {
 		System.out.println("Remitente:");
 		String remitente = sc.next();
 		
@@ -31,11 +36,35 @@ public class Transferencias extends Envio {
 		System.out.println("Cantidad:");
 		int cantidad= sc.nextInt();
 		
-		return new Transferencias(remitente, destinatario, fecha, cantidad);	
+		Transferencias transferencia = new Transferencias(remitente, destinatario, fecha, cantidad);	
+		
+		listaTransferencias.add(transferencia);
+        System.out.println("Transferencia enviada correctamente");
+	}
+	
+	public void obtenerTransferencia() {
+		System.out.println("Indice:");
+    	idBuscado = sc.nextInt();
+    	if(idBuscado >= 0 && idBuscado < listaTransferencias.size()) {
+    		Transferencias transferenciaEscogida = listaTransferencias.get(idBuscado);
+    		System.out.println(transferenciaEscogida.mostrarInfo());
+    	}
+    	else {
+    		System.out.println("La transferencia escogida no existe.");
+    	}
+	}
+	
+	public void obtenerTodasTransferencias() {
+		if(listaTransferencias.isEmpty()) {
+    	} else {
+        	for(Transferencias todasTransferencias:listaTransferencias) {
+            	System.out.println(todasTransferencias.mostrarInfo());
+            }
+    	}
 	}
 	
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %s, cantidad: %d.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, cantidad: %d€.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
 	}
 
 	

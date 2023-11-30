@@ -1,4 +1,5 @@
 
+
 import java.util.Random;
 
 //SuperClass
@@ -38,11 +39,13 @@ public class Persona {
 	protected String apellido;
 	protected int edad;
 	protected String email;
-	int intAleatorio01 = aleatorio.nextInt(100);
+	protected int idBuscado;
 	
-	String stringAleatorio01 = stringAleatorio();
-	String stringAleatorio02 = stringAleatorio();
-	String stringAleatorio03 = stringAleatorio();
+	protected int intAleatorio01 = aleatorio.nextInt(100);
+	
+	protected String stringAleatorio01 = stringAleatorio();
+	protected String stringAleatorio02 = stringAleatorio();
+	protected String stringAleatorio03 = stringAleatorio();
 	
 //	metodos
 	public static String stringAleatorio() {

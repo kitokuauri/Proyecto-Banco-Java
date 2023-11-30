@@ -1,7 +1,12 @@
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Gestores extends Persona{
+	
+	List<Gestores> listaGestores = new ArrayList<Gestores>();
 	
 //	constructor
 	public Gestores(String nombre, String apellido, int edad, String email, double salario) {
@@ -22,34 +27,108 @@ public class Gestores extends Persona{
 	private static int idG = 0;
 	private double intAleatorio02 = aleatorio.nextDouble(2000.0);
 	
-	
-	
 //	métodos
 	Scanner sc = new Scanner(System.in);
+	
 
 
-	public Gestores insertarGestor() {
+	public void insertarGestor() {
 		System.out.println("Nombre:");
-		String nombre = sc.next();
+		nombre = sc.next();
 		
 		System.out.println("Apellido:");
-		String apellido= sc.next();
+		apellido= sc.next();
 		
 		System.out.println("Edad:");
-		int edad= sc.nextInt();
+		edad= sc.nextInt();
 		
 		System.out.println("Email:");
-		String email= sc.next();
+		email= sc.next();
 		
-		return new Gestores(nombre, apellido, edad, email, 1200.0);	
+		Gestores gestor = new Gestores(nombre, apellido, edad, email, 1200.0);	
+		
+		listaGestores.add(gestor);
+		System.out.println("Gestor añadido correctamente");
 	}
 	
 	public Gestores insertarGestorAleatorio() {
 		return new Gestores();
 	}
 	
+	public void insertarVariosGestoresAl() {
+		for(int i=0;i<4;i++) {
+            listaGestores.add(insertarGestorAleatorio());
+        	}
+    	System.out.println("Gestores aleatorios añadidos correctamente");
+	}
+	
+	public void obtenerGestor() {
+		System.out.println("Indice:");
+    	idBuscado = sc.nextInt();
+    	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
+    		Gestores gestorEscogido = listaGestores.get(idBuscado);
+    		System.out.println(gestorEscogido.mostrarInfo());
+    	}
+    	else {
+    		System.out.println("El gestor escogido no existe.");
+    	}
+	}
+	
+	public void obtenerTodosGestores() {
+		if(listaGestores.isEmpty()) {
+    		System.out.println("No existe ningún gestor.");
+    	} else {
+    		for(Gestores todosGestores:listaGestores) {
+            	System.out.println(todosGestores.mostrarInfo());
+            }
+    	}
+	}
+	
 	public String mostrarInfo() {
 		return String.format("Id: %d - %s %s, %d años, correo: %s, salario: %.2f €.", this.id, this.nombre, this.apellido, this.edad, this.email, this.salario);
+	}
+	
+	public void actualizarGestor() {
+		System.out.println("Indice:");
+    	idBuscado = sc.nextInt();
+    	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
+    		Gestores gestorEscogido02 = listaGestores.get(idBuscado);
+    		
+    		System.out.println("Nombre:");
+    		nombre = sc.next();
+    		gestorEscogido02.setNombre(nombre);
+    		
+    		System.out.println("Apellido:");
+    		apellido= sc.next();
+    		gestorEscogido02.setApellido(apellido);
+    		
+    		System.out.println("Edad:");
+    		edad= sc.nextInt();
+    		gestorEscogido02.setEdad(edad);
+    		
+    		System.out.println("Email:");
+    		email= sc.next();
+    		gestorEscogido02.setEmail(email);
+    		
+    		System.out.println("Gestor actualizado correctamente.");
+    		
+    	}
+    	else {
+    		System.out.println("El gestor escogido no existe.");
+    	}
+	}
+	
+	public void eliminarGestor() {
+		System.out.println("Indice:");
+    	idBuscado = sc.nextInt();
+    	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
+    		Gestores gestorEscogido03 = listaGestores.get(idBuscado);
+    		listaGestores.remove(gestorEscogido03);
+            System.out.println("Gestor eliminado correctamente.");
+    	}
+    	else {
+    		System.out.println("El gestor escogido no existe.");
+    	}
 	}
 	
 	

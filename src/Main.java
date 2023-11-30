@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-
 
 public class Main {
 
@@ -10,20 +6,10 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		Gestores gestores = new Gestores();
-		List<Gestores> listaGestores = new ArrayList<Gestores>();
-		
 		Clientes clientes = new Clientes();
-		List<Clientes> listaClientes = new ArrayList<Clientes>();
-		
 		Mensajes mensajes = new Mensajes();
-		List<Mensajes> listaMensajes = new ArrayList<Mensajes>();
-		
 		Transferencias transferencias = new Transferencias();
-		List<Transferencias> listaTransferencias = new ArrayList<Transferencias>();
-		
 		Usuario usuario = new Usuario();
-		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
-	
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -53,213 +39,72 @@ public class Main {
 			System.out.println("0. Finalizar");
 			System.out.println("~ ~ ~ ~ ~ ~");
 			
-			
 		numero = sc.nextInt();
             
             switch (numero){
             case 1: // Insercion 1 gestor
-               listaGestores.add(gestores.insertarGestor());
-               System.out.println("Gestor añadido correctamente");
+            	gestores.insertarGestor();
                 break;
             case 2: // Insercion varios gestores
-            	for(int i=0;i<4;i++) {
-                    listaGestores.add(gestores.insertarGestorAleatorio());
-                	}
-            	System.out.println("Gestores aleatorios añadidos correctamente");
+            	gestores.insertarVariosGestoresAl();
                 break;
             case 3: // Obtencion 1 gestor
-            	System.out.println("Indice:");
-            	int idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
-            		Gestores gestorEscogido = listaGestores.get(idBuscado);
-            		System.out.println(gestorEscogido.mostrarInfo());
-            	}
-            	else {
-            		System.out.println("El gestor escogido no existe.");
-            	}
+            	gestores.obtenerGestor();
                 break;
             case 4: // Obtencion todos los gestores
-            	if(listaGestores.isEmpty()) {
-            		System.out.println("No existe ningún gestor.");
-            	} else {
-            		for(Gestores todosGestores:listaGestores) {
-                    	System.out.println(todosGestores.mostrarInfo());
-                    }
-            	}
+            	gestores.obtenerTodosGestores();
                 break;
             case 5: // Actualizacion 1 gestor
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
-            		Gestores gestorEscogido02 = listaGestores.get(idBuscado);
-            		System.out.println("Nombre:");
-            		String nombre = sc.next();
-            		gestorEscogido02.setNombre(nombre);
-            		System.out.println("Apellido:");
-            		String apellido= sc.next();
-            		gestorEscogido02.setApellido(apellido);
-            		System.out.println("Edad:");
-            		int edad= sc.nextInt();
-            		gestorEscogido02.setEdad(edad);
-            		System.out.println("Email:");
-            		String email= sc.next();
-            		gestorEscogido02.setEmail(email);
-            		System.out.println("Gestor actualizado correctamente.");
-            	}
-            	else {
-            		System.out.println("El gestor escogido no existe.");
-            	}
+            	gestores.actualizarGestor();
                 break;
             case 6: // Eliminación 1 gestor
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
-            		Gestores gestorEscogido03 = listaGestores.get(idBuscado);
-            		listaGestores.remove(gestorEscogido03);
-                    System.out.println("Gestor eliminado correctamente.");
-            	}
-            	else {
-            		System.out.println("El gestor escogido no existe.");
-            	}
+            	gestores.eliminarGestor();
                 break;
             case 7: // Insercion 1 cliente
-            	listaClientes.add(clientes.insertarCliente());
-                System.out.println("Cliente añadido correctamente");
+            	clientes.insertarCliente();
                 break;
             case 8: // Obtencion 1 cliente
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
-            		Clientes clienteEscogido = listaClientes.get(idBuscado);
-            		System.out.println(clienteEscogido.mostrarInfo());
-            	}
-            	else {
-            		System.out.println("El cliente escogido no existe.");
-            	}
+            	clientes.obtenerCliente();
             	break;
             case 9: // Obtencion todos los clientes
-            	if(listaClientes.isEmpty()) {
-            		System.out.println("No existe ningún cliente.");
-            	} else {
-            	  for(Clientes todosClientes:listaClientes) {
-                  	System.out.println(todosClientes.mostrarInfo());
-                  }
-            	}
+            	clientes.obtenerTodosClientes();
             	break;
             case 10: // Actualizacion 1 Cliente
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
-            		Clientes clienteEscogido02 = listaClientes.get(idBuscado);
-            		System.out.println("Nombre:");
-            		String nombreC = sc.next();
-            		clienteEscogido02.setNombre(nombreC);
-            		System.out.println("Apellido:");
-            		String apellidoC= sc.next();
-            		clienteEscogido02.setApellido(apellidoC);
-            		System.out.println("Edad:");
-            		int edadC= sc.nextInt();
-            		clienteEscogido02.setEdad(edadC);
-            		System.out.println("Email:");
-            		String emailC= sc.next();
-            		clienteEscogido02.setEmail(emailC);
-            		System.out.println("Cliente actualizado correctamente.");
-            	}
-            	else {
-            		System.out.println("El cliente escogido no existe.");
-            	}
+            	clientes.actualizarClientes();
             	break;
             case 11: // Eliminación 1 Cliente
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
-            		Clientes clienteEscogido03 = listaClientes.get(idBuscado);
-            		listaClientes.remove(clienteEscogido03);
-                    System.out.println("Cliente eliminado correctamente.");
-            	}
-            	else {
-            		System.out.println("El cliente escogido no existe.");
-            	}
+            	clientes.eliminarCliente();
             	break;
             case 12: // Obtencion 1 mensaje
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaMensajes.size()) {
-            		Mensajes mensajeEscogido = listaMensajes.get(idBuscado);
-            		System.out.println(mensajeEscogido.mostrarInfo());
-            	}
-            	else {
-            		System.out.println("El mensaje escogido no existe.");
-            	}
+            	mensajes.obtenerMensaje();
             	break;
             case 13: // Obtencion todos los mensajes
-            	if(listaMensajes.isEmpty()) {
-            		System.out.println("No existe ningún mensaje.");
-            	} else {
-            	for(Mensajes todosMensajes:listaMensajes) {
-                	System.out.println(todosMensajes.mostrarInfo());
-                }
-            	}
+            	mensajes.obtenerTodosMensajes();
             	break;
             case 14: // Envio 1 mensaje
-                listaMensajes.add(mensajes.enviarMensaje());
-                System.out.println("Mensaje enviado correctamente");
+            	mensajes.enviarMensaje();
                 break;
             case 15: // Obtencion 1 transferencia
-            	System.out.println("Indice:");
-            	idBuscado = sc.nextInt();
-            	if(idBuscado >= 0 && idBuscado < listaTransferencias.size()) {
-            		Transferencias transferenciaEscogida = listaTransferencias.get(idBuscado);
-            		System.out.println(transferenciaEscogida.mostrarInfo());
-            	}
-            	else {
-            		System.out.println("La transferencia escogida no existe.");
-            	}
+            	transferencias.obtenerTransferencia();
             	break;
             case 16: // Obtencion todas las transferencias
-            	if(listaTransferencias.isEmpty()) {
-            	} else {
-            	for(Transferencias todasTransferencias:listaTransferencias) {
-                	System.out.println(todasTransferencias.mostrarInfo());
-                }
-            	}
+            	transferencias.obtenerTodasTransferencias();
             	break;
             case 17: // Envio 1 transferencia
-            	listaTransferencias.add(transferencias.enviarTransferencia());
-                System.out.println("Transferencia enviada correctamente");
+            	transferencias.enviarTransferencia();
             	break;
             case 18: // Login y Registro
             	System.out.println("¿Tiene cuenta en este banco? Y/N");
             	String respuesta = sc.next();
 //            	LOGIN
             	if(respuesta.equals("y") || respuesta.equals("Y")){
-            		System.out.println("Usuario:");
-                	String nombre = sc.next();
-                	System.out.println("Contraseña:");
-                	String contraseña = sc.next();
-                	
-                	boolean presente = false;
-                	
-                	for(Usuario user : listaUsuarios) {
-                		if((user.getNombre().equals(nombre)) && (user.getContraseña().equals(contraseña)) ) {
-                			presente=true;
-                			break;
-                		}
-                	}
-                	if(presente) {
-                		System.out.println("¡Inicio de sesión exitoso!");
-                		System.out.println("Bienvenido " + nombre + ".");
-                	} else {
-                		System.out.println("Nombre de usuario o contraseña incorrectos.");
-                	}
+            		usuario.login();
 //              REGISTRO
             	} else if(respuesta.equals("n") || respuesta.equals("N")) {
-            		listaUsuarios.add(usuario.registro());
-	            	System.out.println("Registro realizado con exito.");
+            		usuario.registro();
                 } else {
                 	System.out.println("Respuesta inválida.");
             	}
-            	
             	break;
             case 0:
             	break;

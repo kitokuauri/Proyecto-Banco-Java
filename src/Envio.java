@@ -1,4 +1,6 @@
 //SuperClass
+
+
 public class Envio {
 	
 //	SuperConstructor
@@ -16,6 +18,7 @@ public class Envio {
 	protected String remitente;
 	protected String destinatario;
 	protected String fecha;
+	protected int idBuscado;
 	
 //	métodos
 	public String mostrarInfo() {

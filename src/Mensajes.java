@@ -1,6 +1,11 @@
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Mensajes extends Envio {
+	
+	List<Mensajes> listaMensajes = new ArrayList<Mensajes>();
 	
 //	constructor
 	public Mensajes(String remitente, String destinatario, String fecha, String mensaje) {
@@ -18,7 +23,7 @@ public class Mensajes extends Envio {
 	Scanner sc = new Scanner(System.in);
 
 
-	public Mensajes enviarMensaje() {
+	public void enviarMensaje() {
 		System.out.println("Remitente:");
 		String remitente = sc.next();
 		
@@ -31,11 +36,36 @@ public class Mensajes extends Envio {
 		System.out.println("Mensaje:");
 		String mensaje= sc.next();
 		
-		return new Mensajes(remitente, destinatario, fecha, mensaje);	
+		Mensajes nuevoMensaje = new Mensajes(remitente, destinatario, fecha, mensaje);
+		
+		listaMensajes.add(nuevoMensaje);
+        System.out.println("Mensaje enviado correctamente");
+	}
+	
+	public void obtenerMensaje() {
+		System.out.println("Indice:");
+    	idBuscado = sc.nextInt();
+    	if(idBuscado >= 0 && idBuscado < listaMensajes.size()) {
+    		Mensajes mensajeEscogido = listaMensajes.get(idBuscado);
+    		System.out.println(mensajeEscogido.mostrarInfo());
+    	}
+    	else {
+    		System.out.println("El mensaje escogido no existe.");
+    	}
+	}
+	
+	public void obtenerTodosMensajes() {
+		if(listaMensajes.isEmpty()) {
+    		System.out.println("No existe ningún mensaje.");
+    	} else {
+        	for(Mensajes todosMensajes:listaMensajes) {
+            	System.out.println(todosMensajes.mostrarInfo());
+            }
+    	}
 	}
 	
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha  %s, mensaje: %s.", this.id, this.remitente, this.destinatario, this.fecha, this.mensaje);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, mensaje: %s.", this.id, this.remitente, this.destinatario, this.fecha, this.mensaje);
 	}
 
 
