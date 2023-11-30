@@ -79,9 +79,13 @@ public class Main {
             	}
                 break;
             case 4: // Obtencion todos los gestores
-                for(Gestores todosGestores:listaGestores) {
-                	System.out.println(todosGestores.mostrarInfo());
-                }
+            	if(listaGestores.isEmpty()) {
+            		System.out.println("No existe ningún gestor.");
+            	} else {
+            		for(Gestores todosGestores:listaGestores) {
+                    	System.out.println(todosGestores.mostrarInfo());
+                    }
+            	}
                 break;
             case 5: // Actualizacion 1 gestor
             	System.out.println("Indice:");
@@ -134,9 +138,13 @@ public class Main {
             	}
             	break;
             case 9: // Obtencion todos los clientes
+            	if(listaClientes.isEmpty()) {
+            		System.out.println("No existe ningún cliente.");
+            	} else {
             	  for(Clientes todosClientes:listaClientes) {
                   	System.out.println(todosClientes.mostrarInfo());
                   }
+            	}
             	break;
             case 10: // Actualizacion 1 Cliente
             	System.out.println("Indice:");
@@ -185,9 +193,13 @@ public class Main {
             	}
             	break;
             case 13: // Obtencion todos los mensajes
+            	if(listaMensajes.isEmpty()) {
+            		System.out.println("No existe ningún mensaje.");
+            	} else {
             	for(Mensajes todosMensajes:listaMensajes) {
                 	System.out.println(todosMensajes.mostrarInfo());
                 }
+            	}
             	break;
             case 14: // Envio 1 mensaje
                 listaMensajes.add(mensajes.enviarMensaje());
@@ -205,9 +217,12 @@ public class Main {
             	}
             	break;
             case 16: // Obtencion todas las transferencias
+            	if(listaTransferencias.isEmpty()) {
+            	} else {
             	for(Transferencias todasTransferencias:listaTransferencias) {
                 	System.out.println(todasTransferencias.mostrarInfo());
                 }
+            	}
             	break;
             case 17: // Envio 1 transferencia
             	listaTransferencias.add(transferencias.enviarTransferencia());
