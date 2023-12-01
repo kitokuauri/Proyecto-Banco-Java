@@ -8,7 +8,7 @@ public class Transferencias extends Envio implements Interfaz{
 	List<Transferencias> listaTransferencias = new ArrayList<Transferencias>();
 	
 //	constructor
-	public Transferencias(String remitente, String destinatario, String fecha, int cantidad) {
+	public Transferencias(String remitente, String destinatario, String fecha, double cantidad) {
 		super(idT++, remitente, destinatario, fecha);
 		this.cantidad=cantidad;
 	}
@@ -16,7 +16,7 @@ public class Transferencias extends Envio implements Interfaz{
 	public Transferencias() {};
 
 //	atributos
-	private int cantidad;
+	private double cantidad;
 	private static int idT = 0;
 
 //	métodos
@@ -25,16 +25,16 @@ public class Transferencias extends Envio implements Interfaz{
 
 	public void enviarTransferencia() {
 		System.out.println("Remitente:");
-		String remitente = sc.next();
+		remitente = sc.next();
 		
 		System.out.println("Destinatario:");
-		String destinatario= sc.next();
+		destinatario= sc.next();
 		
 		System.out.println("Fecha:");
-		String fecha= sc.next();
+		fecha= sc.next();
 		
 		System.out.println("Cantidad:");
-		int cantidad= sc.nextInt();
+		cantidad= sc.nextDouble();
 		
 		Transferencias transferencia = new Transferencias(remitente, destinatario, fecha, cantidad);	
 		
@@ -64,7 +64,7 @@ public class Transferencias extends Envio implements Interfaz{
 	}
 	
 	public String mostrarInfo() {
-		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, cantidad: %d€.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
+		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, cantidad: %f%n€.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
 	}
 
 	@Override
