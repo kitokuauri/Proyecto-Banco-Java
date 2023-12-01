@@ -92,23 +92,23 @@ public class Gestores extends Persona{
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
-    		Gestores gestorEscogido02 = listaGestores.get(idBuscado);
+    		Gestores gestorEscogido = listaGestores.get(idBuscado);
     		
     		System.out.println("Nombre:");
     		nombre = sc.next();
-    		gestorEscogido02.setNombre(nombre);
+    		gestorEscogido.setNombre(nombre);
     		
     		System.out.println("Apellido:");
     		apellido= sc.next();
-    		gestorEscogido02.setApellido(apellido);
+    		gestorEscogido.setApellido(apellido);
     		
     		System.out.println("Edad:");
     		edad= sc.nextInt();
-    		gestorEscogido02.setEdad(edad);
+    		gestorEscogido.setEdad(edad);
     		
     		System.out.println("Email:");
     		email= sc.next();
-    		gestorEscogido02.setEmail(email);
+    		gestorEscogido.setEmail(email);
     		
     		System.out.println("Gestor actualizado correctamente.");
     		
