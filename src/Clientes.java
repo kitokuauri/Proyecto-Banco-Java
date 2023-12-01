@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Clientes extends Persona {
+public class Clientes extends Persona implements Interfaz{
 	List<Clientes> listaClientes = new ArrayList<Clientes>();
 	
 //	constructor
@@ -19,7 +19,7 @@ public class Clientes extends Persona {
 //	métodos
 	Scanner sc = new Scanner(System.in);
 
-	public void insertarCliente() {
+	public void insertar() {
 		System.out.println("Nombre:");
 		nombre = sc.next();
 		
@@ -37,7 +37,7 @@ public class Clientes extends Persona {
         System.out.println("Cliente añadido correctamente");
 	}
 	
-	public void obtenerCliente() {
+	public void obtener() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
@@ -49,7 +49,7 @@ public class Clientes extends Persona {
     	}
 	}
 	
-	public void obtenerTodosClientes() {
+	public void obtenerTodos() {
 		if(listaClientes.isEmpty()) {
     		System.out.println("No existe ningún cliente.");
     	} else {
@@ -63,7 +63,7 @@ public class Clientes extends Persona {
 		return String.format("Id: %d - %s %s, %d años, correo: %s.", this.id, this.nombre, this.apellido, this.edad, this.email);
 	}
 	
-	public void actualizarClientes() {
+	public void actualizar() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
@@ -91,7 +91,7 @@ public class Clientes extends Persona {
     	}
 	}
 	
-	public void eliminarCliente() {
+	public void eliminar() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaClientes.size()) {
@@ -103,5 +103,6 @@ public class Clientes extends Persona {
     		System.out.println("El cliente escogido no existe.");
     	}
 	}
+
 
 }

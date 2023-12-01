@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Gestores extends Persona{
+public class Gestores extends Persona implements Interfaz{
 	
 	List<Gestores> listaGestores = new ArrayList<Gestores>();
 	
@@ -32,7 +32,7 @@ public class Gestores extends Persona{
 	
 
 
-	public void insertarGestor() {
+	public void insertar() {
 		System.out.println("Nombre:");
 		nombre = sc.next();
 		
@@ -55,14 +55,14 @@ public class Gestores extends Persona{
 		return new Gestores();
 	}
 	
-	public void insertarVariosGestoresAl() {
+	public void insertarVariosAl() {
 		for(int i=0;i<4;i++) {
             listaGestores.add(insertarGestorAleatorio());
         	}
     	System.out.println("Gestores aleatorios añadidos correctamente");
 	}
 	
-	public void obtenerGestor() {
+	public void obtener() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
@@ -74,7 +74,7 @@ public class Gestores extends Persona{
     	}
 	}
 	
-	public void obtenerTodosGestores() {
+	public void obtenerTodos() {
 		if(listaGestores.isEmpty()) {
     		System.out.println("No existe ningún gestor.");
     	} else {
@@ -88,7 +88,7 @@ public class Gestores extends Persona{
 		return String.format("Id: %d - %s %s, %d años, correo: %s, salario: %.2f €.", this.id, this.nombre, this.apellido, this.edad, this.email, this.salario);
 	}
 	
-	public void actualizarGestor() {
+	public void actualizar() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {
@@ -118,7 +118,7 @@ public class Gestores extends Persona{
     	}
 	}
 	
-	public void eliminarGestor() {
+	public void eliminar() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaGestores.size()) {

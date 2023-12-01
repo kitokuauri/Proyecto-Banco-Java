@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Mensajes extends Envio {
+public class Mensajes extends Envio implements Interfaz {
 	
 	List<Mensajes> listaMensajes = new ArrayList<Mensajes>();
 	
@@ -42,7 +42,7 @@ public class Mensajes extends Envio {
         System.out.println("Mensaje enviado correctamente");
 	}
 	
-	public void obtenerMensaje() {
+	public void obtener() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaMensajes.size()) {
@@ -54,7 +54,7 @@ public class Mensajes extends Envio {
     	}
 	}
 	
-	public void obtenerTodosMensajes() {
+	public void obtenerTodos() {
 		if(listaMensajes.isEmpty()) {
     		System.out.println("No existe ningún mensaje.");
     	} else {
@@ -66,6 +66,24 @@ public class Mensajes extends Envio {
 	
 	public String mostrarInfo() {
 		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, mensaje: %s.", this.id, this.remitente, this.destinatario, this.fecha, this.mensaje);
+	}
+
+	@Override
+	public void insertar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

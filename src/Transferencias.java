@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Transferencias extends Envio {
+public class Transferencias extends Envio implements Interfaz{
 	
 	List<Transferencias> listaTransferencias = new ArrayList<Transferencias>();
 	
@@ -42,7 +42,7 @@ public class Transferencias extends Envio {
         System.out.println("Transferencia enviada correctamente");
 	}
 	
-	public void obtenerTransferencia() {
+	public void obtener() {
 		System.out.println("Indice:");
     	idBuscado = sc.nextInt();
     	if(idBuscado >= 0 && idBuscado < listaTransferencias.size()) {
@@ -54,7 +54,7 @@ public class Transferencias extends Envio {
     	}
 	}
 	
-	public void obtenerTodasTransferencias() {
+	public void obtenerTodos() {
 		if(listaTransferencias.isEmpty()) {
     	} else {
         	for(Transferencias todasTransferencias:listaTransferencias) {
@@ -65,6 +65,24 @@ public class Transferencias extends Envio {
 	
 	public String mostrarInfo() {
 		return String.format("Id: %d - Remitente: %s, destinatario: %s,fecha:  %s, cantidad: %d€.", this.id, this.remitente, this.destinatario, this.fecha, this.cantidad);
+	}
+
+	@Override
+	public void insertar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actualizar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

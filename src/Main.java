@@ -43,52 +43,52 @@ public class Main {
             
             switch (numero){
             case 1: // Insercion 1 gestor
-            	gestores.insertarGestor();
+            	gestores.insertar();
                 break;
             case 2: // Insercion varios gestores
-            	gestores.insertarVariosGestoresAl();
+            	gestores.insertarVariosAl();
                 break;
             case 3: // Obtencion 1 gestor
-            	gestores.obtenerGestor();
+            	gestores.obtener();
                 break;
             case 4: // Obtencion todos los gestores
-            	gestores.obtenerTodosGestores();
+            	gestores.obtenerTodos();
                 break;
             case 5: // Actualizacion 1 gestor
-            	gestores.actualizarGestor();
+            	gestores.actualizar();
                 break;
             case 6: // Eliminación 1 gestor
-            	gestores.eliminarGestor();
+            	gestores.eliminar();
                 break;
             case 7: // Insercion 1 cliente
-            	clientes.insertarCliente();
+            	clientes.insertar();
                 break;
             case 8: // Obtencion 1 cliente
-            	clientes.obtenerCliente();
+            	clientes.obtener();
             	break;
             case 9: // Obtencion todos los clientes
-            	clientes.obtenerTodosClientes();
+            	clientes.obtenerTodos();
             	break;
             case 10: // Actualizacion 1 Cliente
-            	clientes.actualizarClientes();
+            	clientes.actualizar();
             	break;
             case 11: // Eliminación 1 Cliente
-            	clientes.eliminarCliente();
+            	clientes.eliminar();
             	break;
             case 12: // Obtencion 1 mensaje
-            	mensajes.obtenerMensaje();
+            	mensajes.obtener();
             	break;
             case 13: // Obtencion todos los mensajes
-            	mensajes.obtenerTodosMensajes();
+            	mensajes.obtenerTodos();
             	break;
             case 14: // Envio 1 mensaje
             	mensajes.enviarMensaje();
                 break;
             case 15: // Obtencion 1 transferencia
-            	transferencias.obtenerTransferencia();
+            	transferencias.obtener();
             	break;
             case 16: // Obtencion todas las transferencias
-            	transferencias.obtenerTodasTransferencias();
+            	transferencias.obtenerTodos();
             	break;
             case 17: // Envio 1 transferencia
             	transferencias.enviarTransferencia();
